@@ -8,9 +8,9 @@ public interface List232<E> {
 	
 	public E remove( int index);
 	
-	public E get( int index);
+	public E get( int index) throws Exception;
 	
-	public void set(int index, E element);
+	public void set(int index, E element) throws Exception;
 	
 	public void insert(int index, E element);
 
