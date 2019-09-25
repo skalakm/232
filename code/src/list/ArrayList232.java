@@ -22,7 +22,7 @@ public class ArrayList232<E> implements List232<E> {
 			backingStore[size] = element;
 			size++;
 		}else {
-			makeArrayOneBigger();
+			makeArrayDoubleSize();
 			backingStore[size] = element;
 			size++;
 		}
@@ -46,9 +46,19 @@ public class ArrayList232<E> implements List232<E> {
 	}
 
 	@Override
-	public E remove(int index) {
-		// TODO Auto-generated method stub
-		return null;
+	public E remove(int index) throws Exception {
+		// get element to remove
+		E removedElement = get(index);
+		
+		// move elements down
+		for(int i = index+1; i < size; ++i) {
+			set(i, get(i+1));
+		}
+		
+		//reduce size
+		size--;
+		
+		return removedElement;
 	}
 
 	@Override
@@ -72,9 +82,31 @@ public class ArrayList232<E> implements List232<E> {
 	}
 
 	@Override
-	public void insert(int index, E element) {
-		// TODO Auto-generated method stub
+	public void insert(int index, E element) throws Exception {
 
+		//check if index is valid
+		if(index <0 || index > size) {
+			throw new Exception();
+		}
+		
+		// check if array needs more space
+		if( size == backingStore.length) {
+			makeArrayDoubleSize();
+		}
+		
+		// copy elements down
+		for(int i = index; i < size; ++i) {
+			backingStore[i] = backingStore[i+1];
+		}
+		
+		
+		// add new element
+		backingStore[index] = element;
+		size++;
+		
+		
+		
+		
 	}
 
 }
