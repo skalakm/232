@@ -2,6 +2,29 @@ package list;
 
 public class LinkedList232<E> implements List232<E> {
 
+	
+	public static void main(String[] args) throws Exception {
+		LinkedList232<Double> linked = new LinkedList232<Double>();
+		
+		for(int i = 0; i < 100000; ++i) {
+			linked.add(i+1.3);
+		}
+		
+		for(int i = 0; i < 100000; ++i) {
+			System.out.println(linked.get(i));
+		}
+		
+		List232<Double> arr = new ArrayList232<Double>();
+		
+		for(int i = 0; i < 100000; ++i) {
+			arr.add(i+1.3);
+		}
+		
+		for(int i = 0; i < 100000; ++i) {
+			System.out.println(arr.get(i));
+		}
+		
+	}
 	private int size;
 	
 	private DLLNode head;
@@ -41,11 +64,7 @@ public class LinkedList232<E> implements List232<E> {
 		
 	}
 
-	@Override
-	public E remove(int index) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
 	public E get(int index) throws Exception {
@@ -72,14 +91,38 @@ public class LinkedList232<E> implements List232<E> {
 
 	@Override
 	public void set(int index, E element) throws Exception {
-		// TODO Auto-generated method stub
 		
+		DLLNode theNode = getNode(index);
+		theNode.element = element;
 	}
 
 	@Override
 	public void insert(int index, E element) throws Exception {
-		// TODO Auto-generated method stub
 		
+		DLLNode theNode = getNode(index);
+		DLLNode prevNode = theNode.prev;
+		
+		DLLNode newNode = new DLLNode();
+		newNode.element = element;
+		
+		theNode.prev = newNode;
+		newNode.next = theNode;
+		
+		prevNode.next = newNode;
+		newNode.prev  = prevNode;
+	}
+	
+	@Override
+	public E remove(int index) throws Exception {
+		
+		DLLNode toRemove = getNode(index);
+		
+		DLLNode prevNode = toRemove.prev;
+		DLLNode nextNode = toRemove.next;
+		
+		prevNode.next = nextNode;
+		nextNode.prev = prevNode;
+		return toRemove.element;
 	}
 	
 	private class DLLNode{
