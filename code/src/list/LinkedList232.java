@@ -1,28 +1,26 @@
 package list;
 
-public class LinkedList232<E> implements List232<E> {
+public class LinkedList232<E> implements List232<E>, Iterable232<E> {
 
 	
 	public static void main(String[] args) throws Exception {
 		LinkedList232<Double> linked = new LinkedList232<Double>();
 		
-		for(int i = 0; i < 100000; ++i) {
-			linked.add(i+1.3);
-		}
-		
-		for(int i = 0; i < 100000; ++i) {
-			System.out.println(linked.get(i));
-		}
+		Iterable232<Double> linkedIter = linked;
 		
 		List232<Double> arr = new ArrayList232<Double>();
 		
-		for(int i = 0; i < 100000; ++i) {
-			arr.add(i+1.3);
-		}
 		
-		for(int i = 0; i < 100000; ++i) {
-			System.out.println(arr.get(i));
+		for(int i = 0; i < 1000000; ++i) {
+			linked.add(.0+i);
+			arr.add(.0+i);
 		}
+		ListAlgorithms.slowPrintAll(linked);
+		
+		//ListAlgorithms.slowPrintAll(arr);
+		
+		ListAlgorithms.iterPrintAll(linked.getIterator());
+		
 		
 	}
 	private int size;
@@ -129,6 +127,65 @@ public class LinkedList232<E> implements List232<E> {
 		DLLNode next;
 		DLLNode prev;
 		E element;
+		
+	}
+
+	@Override
+	public int size() {
+		return size;
+	}
+
+
+	@Override
+	public Iterator232<E> getIterator() {
+		
+		return new LinkedIterator();
+	}
+	
+	private class LinkedIterator implements Iterator232<E>{
+
+		DLLNode cur;
+		public LinkedIterator() {
+			cur = head;
+		}
+		@Override
+		public boolean hasNext() {
+			
+			return cur!=tail.prev;
+		}
+
+		@Override
+		public E next() {
+			
+			DLLNode node = cur.next;
+			cur = cur.next;
+			return node.element;
+		}
+
+		@Override
+		public boolean hasPrev() {
+			
+			return cur!=head;
+		}
+
+		@Override
+		public E prev() {
+			DLLNode node = cur;
+			cur = cur.prev;
+			return node.element;
+		}
+
+		@Override
+		public void insert(E item) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public E remove() {
+			// TODO Auto-generated method stub
+			return null;
+		}
 		
 	}
 

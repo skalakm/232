@@ -13,6 +13,8 @@ public interface List232<E> {
 	public void set(int index, E element) throws Exception;
 	
 	public void insert(int index, E element) throws Exception;
+	
+	public int size();
 
 	
 }

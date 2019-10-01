@@ -108,5 +108,9 @@ public class ArrayList232<E> implements List232<E> {
 		
 		
 	}
+	@Override
+	public int size() {
+		return size;
+	}
 
 }
