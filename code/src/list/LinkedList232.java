@@ -71,7 +71,7 @@ public class LinkedList232<E> implements List232<E>, Iterable232<E> {
 	}
 	
 	private DLLNode getNode(int index) throws Exception {
-		if(index < 0 || index >=size) {
+		if(index < 0 || index >size) {
 			throw new Exception();
 		}
 
@@ -108,6 +108,7 @@ public class LinkedList232<E> implements List232<E>, Iterable232<E> {
 		
 		prevNode.next = newNode;
 		newNode.prev  = prevNode;
+		size++;
 	}
 	
 	@Override
@@ -120,6 +121,7 @@ public class LinkedList232<E> implements List232<E>, Iterable232<E> {
 		
 		prevNode.next = nextNode;
 		nextNode.prev = prevNode;
+		size--;
 		return toRemove.element;
 	}
 	
