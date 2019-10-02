@@ -123,7 +123,7 @@ public class LinkedList232<E> implements List232<E>, Iterable232<E> {
 		return toRemove.element;
 	}
 	
-	private class DLLNode{
+	class DLLNode{
 		DLLNode next;
 		DLLNode prev;
 		E element;
