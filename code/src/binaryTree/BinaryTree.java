@@ -6,7 +6,7 @@ public interface BinaryTree<Key, Value> {
 	
 	public Value get(Key k);
 	
-	public void set(Key k, Value v);
+	public void set(Key k, Value v) throws Exception;
 	
 	public Value remove(Key k);
 	
