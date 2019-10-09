@@ -1,3 +1,4 @@
+package binaryTree;
 
 public interface BinaryTree<Key, Value> {
 	
@@ -13,6 +14,14 @@ public interface BinaryTree<Key, Value> {
 	
 	public boolean containsKey(Key k);
 	
+	
+	public void visitLevelOrder( Visitor<Key, Value> v);
+	
+
+	public void visitPreOrder( Visitor<Key, Value> v);
 
 
+	public void visitInOrder( Visitor<Key, Value> v);
+
+	public void visitPostOrder( Visitor<Key, Value> v);
 }
