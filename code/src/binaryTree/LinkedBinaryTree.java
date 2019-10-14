@@ -88,8 +88,66 @@ public class LinkedBinaryTree< Key, Val> implements BinaryTree<Key, Val>{
 
 	@Override
 	public Val remove(Key k) {
-		// TODO Auto-generated method stub
-		return null;
+		BTNode<Key, Val> nodeToRemove = getNode(k);
+		if(nodeToRemove == null) {
+			return null;
+		}
+		
+		int childrenCount = 0;
+		if(nodeToRemove.right != null) {
+			childrenCount++;
+		}
+		if(nodeToRemove.left != null) {
+			childrenCount++;
+			
+		}
+		
+		if( childrenCount == 0) {
+			if(nodeToRemove.parent.left == nodeToRemove) {
+				nodeToRemove.parent.left = null;
+				
+			}else {
+				nodeToRemove.parent.right = null;
+				
+			}
+		}else if(childrenCount == 1) {
+			if(nodeToRemove.left != null) {
+				if(nodeToRemove.parent.left== nodeToRemove) {// node is a left child and has a left child
+					nodeToRemove.parent.left = nodeToRemove.left;
+					nodeToRemove.left.parent = nodeToRemove.parent;
+				}else { //node is left child and has right child
+					nodeToRemove.parent.left = nodeToRemove.right;
+					nodeToRemove.right.parent = nodeToRemove.parent;
+				}
+			}else {
+				if(nodeToRemove.parent.right== nodeToRemove) {// node is a right child and has a right child
+					nodeToRemove.parent.right = nodeToRemove.right;
+					nodeToRemove.right.parent = nodeToRemove.parent;
+				}else { //node is right child and has left child
+					nodeToRemove.parent.right = nodeToRemove.left;
+					nodeToRemove.left.parent = nodeToRemove.parent;
+				}
+			}
+			
+		}else {
+			
+			BTNode< Key, Val > easyNode = nodeToRemove;
+			while(easyNode.right != null) {
+				easyNode = easyNode.right;
+			}
+			Key temp = nodeToRemove.key;
+			Val tempVal = nodeToRemove.val;
+			nodeToRemove.key = easyNode.key;
+			nodeToRemove.val = easyNode.val;
+			easyNode.key = temp;
+			easyNode.val = tempVal;
+			
+			return remove(k);
+		}
+		size--;
+		return nodeToRemove.val;
+		
+		
 	}
 
 
