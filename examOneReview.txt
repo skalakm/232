@@ -1,0 +1,55 @@
+tree
+	traversals
+		preorder
+		postorder
+		breadthfirst/level order
+		in order
+	depth
+	path
+	distance
+	edge
+	node
+	children/parent
+	ancestor/descendant
+	sub tree
+	root 
+	complete
+	full
+	degenerate
+	levels
+	width
+	leaves
+	internal nodes
+	operations
+		add/remove/size/get/set/contains
+
+
+
+lists
+	operations
+		add/remove/size/get/set/contains
+	linked
+	array
+
+generics
+	classes
+	functions
+
+
+analysis
+	recursive
+		expansion
+	iterative
+		summation
+	function/algorithm/problem/case
+	big O, omega, theta
+	best case does not mean a small input!!!!!!11
+
+
+recursive backtracking
+	split array
+	maze solver
+	combination
+	subsets
+
+class inheritance/interface
