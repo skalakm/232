@@ -42,6 +42,8 @@ public class PriorityQueue232< Key extends Comparable<Key>, Value> {
 		
 			// trickle down from the root
 		trickleDown(0);
+		
+		// return value
 		return node.value;
 		
 		
@@ -75,6 +77,17 @@ public class PriorityQueue232< Key extends Comparable<Key>, Value> {
 			
 			
 		}
+	}
+	
+	public void add(Key k, Value v) {
+		// make a node
+		
+		//put node at last leaf
+		
+		//percolate up
+		
+		
+		
 	}
 	
 	private int getIndexOfSmallerChild(int index) {
