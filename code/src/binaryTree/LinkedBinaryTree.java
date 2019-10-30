@@ -11,7 +11,7 @@ public class LinkedBinaryTree< Key, Val> implements BinaryTree<Key, Val>{
 	
 	
 	
-	class BTNode< G, H>{
+	protected class BTNode< G, H>{
 		G key;
 		H val;
 		
