@@ -39,7 +39,7 @@ public class StreamTest {
 
 		System.out.println("sum of stuff " + result);
 		System.out.println(divisibleBy6);
-		result = IntStream.range(1, 100).filter(StreamTest::divisBy9).map(s -> (int)Math.pow(s, 2))
+		result = IntStream.range(1, 100).filter(StreamTest::divisBy9).map(StreamTest::square)
 			.reduce(1, StreamTest::product);
 		
 
