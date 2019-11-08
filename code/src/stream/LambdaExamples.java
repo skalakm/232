@@ -52,7 +52,7 @@ public class LambdaExamples {
 		System.out.println("starting parrallel");
 		primes.parallelStream().filter((s) -> (s % 4) == 1).forEach(System.out::println);
 
-		primes.parallelStream().filter((s) -> (s % 4) == 1).forEach(System.out::println);
+	//	primes.parallelStream().filter((s) -> (s % 4) == 1).forEach(System.out::println);
 
 		ArrayList<LambdaExamples> list = new ArrayList<LambdaExamples>();
 		IntStream.range(0, 10).forEach(s -> list.add(new LambdaExamples(s)));
