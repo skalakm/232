@@ -1,0 +1,54 @@
+
+1a PBEFIZQYXVO
+1b FEBZIQPXYOV
+
+2a (in level order) 
+10,20,13,22,25,108,105,37,36,70,50
+
+2b
+13,20,70,22,50,108,105,37,36,70
+
+
+3 The preorder traversal is 50,2,0,35,26,70,54,458,600,601.  You should be able to figure out the tree.
+
+4a 9 should be promoted to where 8 is
+4b 60 should be promoted to where 70 is 
+
+5a 10 should be moved to the root.  It's imbalanced at node 11. 
+5b We need to do a rotate left at node 11, then a rotate right at node 10 (the new root). 
+
+6a This is a little bit of a joke.  An inorder traversal of a BST will always be the numbers sorted.  So the answer is 0,1,2,3,4,5,6,7,8,9
+
+6b The postorder traversal is 5,3,1,12,16,15,10.  You should be able to figure out the tree. 
+
+6c
+The following function returns the sum of all keys less than 1000.
+
+public long sumAllLessThan1000(BTNode<Long,V> root){
+	if(root == null){
+		return 0;
+	}else if(root.value >=1000){
+		return sumAllLessThan1000(root.left);
+	}else{
+		return sumAllLessThan1000(root.left) + root.value + sumAllLessThan1000(root.right);
+	}
+
+}
+
+7a
+The worst case input for insertion sort is a reverse sorted list.  An example of size 5 is 5,4,3,2,1.  
+
+7b  A list can be reversed in theta(n) time.  
+
+7c  The worst case for ASort would be a bad case for insertion sort that is not completely reverse sorted.  A list could be reversed, except for 1 element.  This would cause the check for a reverse sorted list to fail, leading to insertion sort running on the list.  This would still take theta(n^2) time. 
+
+An example of size 10 would be 10,9,8,7,6,5,4,3,1,2
+
+8
+Use insertion sort.  In normal insertion sort, the elements swap only if there one is strictly smaller.  Change this to be smaller than or equal to.  
+
+9. We did this in class.  
+
+10a a linked list 
+10b a binary tree 
+10c Each person would keep calling from the time they first receive the information until everyone has heard.  As an example, p0 might end up calling 5 people: p1,p2,p3,p4,p5.  p1 would call 4 people since their first call would occur while p0 was calling p2.  p2 would call 3, p3 would call 2, and so on.  Interestingly, this will lead to the same big O running time as the binary tree (lgn), but will be slightly faster in absolute terms.  
