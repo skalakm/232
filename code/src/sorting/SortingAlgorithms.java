@@ -76,6 +76,7 @@ public class SortingAlgorithms {
 			result.add(secondHalf.get(secondHalfIndex));
 			secondHalfIndex++;
 		}
+		return result;
 	}
 	
 	public static class Pair implements Comparable<Pair> {
