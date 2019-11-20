@@ -39,12 +39,16 @@ public class SortingAlgorithms {
 					}
 				}
 				// swap the curIndex and the minIndex
-				K temp = vals.get(i);
-				vals.set(i, vals.get(minIndex));
-				vals.set(minIndex, temp);
+				swap(i, minIndex, vals);
 				//System.out.println(vals);
 			}
 			return vals;
+	}
+	
+	static public <K>  void swap(int i, int j, ArrayList<K> elements) {
+		K temp = elements.get(i);
+		elements.set(i, elements.get(j));
+		elements.set(j, temp);
 	}
 	
 	public static <K extends Comparable<K>> List<K> mergeSort(List<K> vals){
@@ -77,6 +81,24 @@ public class SortingAlgorithms {
 			secondHalfIndex++;
 		}
 		return result;
+	}
+	
+	
+	public static <K extends Comparable<K> > ArrayList<K> insertionSort(
+			ArrayList<K> elements){
+		
+		for(int i = 1; i < elements.size(); ++i) {
+			for(int j = i; j >1; --j) {
+				// if elements j is smaller elements i, swap them
+				if( elements.get(j).compareTo(elements.get(i)) < 0) {
+					swap(i,j, elements);
+				}else {
+					break;
+				}
+			}
+		}
+		return elements;
+		
 	}
 	
 	public static class Pair implements Comparable<Pair> {
