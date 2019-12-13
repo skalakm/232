@@ -1,0 +1,100 @@
+graphs
+	vertexs and edges
+	paths (simple)
+	connected/components
+	weighted/unweighted
+	directed/undirected
+	cycle
+	representations
+		matrix
+			a[i][j] is the weight of edge i j
+			
+		list
+			list.get(i) is the list of neighbors of i
+		pros/cons
+		operations
+			add edge
+			constructor
+			remove edge
+	algorithms
+		breath first search
+			traversal
+			demonstrate with a queue
+			implement
+			analysis	
+		depth first search
+			traversal
+			demonstrate with call stack
+			implement
+			analysis
+
+hashmaps
+	hash function
+	size vs capacity
+	operations (implementations and analysis)
+		size	
+		put
+		get
+		remove
+		doubling
+	open hashing/closed addressing
+		list
+	closed hashing/open addressing
+		probe function
+		probe sequence
+		tombstone (aka DEL)
+
+sorting
+	best cases/worst cases
+	demonstrate
+	implement
+	inorder
+	inplace
+	mergesort
+	selection
+	insertion
+
+tree
+	height, depth, leaf, root, internal, children, full, complete, parent, path, width
+	traversals (breadth first, inorder, preorder, postorder)	
+	heaps
+		add, remove min
+	binary search tree
+		add, get, remove
+
+list
+	operations: add, remove, get, set, size
+	analysis of operations
+	implementation
+	linked list
+	array list
+
+functional programming
+	map
+	foreach
+	filter
+	lambda functions (inline functions)
+	IntStream.range
+
+interfaces, abstract classes, implementation, generics, bounded generics
+Comparable interface
+
+abstraction, refactoring, variable naming, code structure
+
+problem solving
+	recursive backtracking
+
+comparing data structures for different uses
+	operations
+	running times
+
+analysis
+	iterative functions
+		summations
+	recursive functions
+		recurrence relations
+	best case/worst case
+	O, omega, theta
+	function, case, algorithm, problem
+
+
